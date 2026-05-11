@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacy Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="banner">
+    <h1>Welcome to MediCare Pharmacy</h1>
+    <p>Your Health, Our Priority</p>
+</header>
+
+<section class="services">
+    <h2>Our Services</h2>
+    <div class="service-container">
+        <div class="card">Prescription</div>
+        <div class="card">Home Delivery</div>
+       <a href="#health-tips" class="card-link">
+    <div class="card">Health Advice</div>
+</a>
+    </div>
+</section>
+
+<section class="emergency">
+    <h2>Emergency Contact</h2>
+    <p>📞 01814923774</p>
+</section>
+
+<section class="catalog">
+    <h2>Medicine Catalog</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Generic Name</th>
+            <th>Manufacturer</th>
+            <th>Dosage</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Paracetamol</td>
+            <td>Acetaminophen</td>
+            <td>Square Pharma</td>
+            <td>500mg</td>
+            <td><a href="upload.php?info=Paracetamol">Read More</a></td>
+        </tr>
+        <tr>
+            <td>Amoxicillin</td>
+            <td>Amoxicillin</td>
+            <td>Incepta</td>
+            <td>250mg</td>
+            <td><a href="upload.php?info=Paracetamol">Read More</a></td>
+        </tr>
+    </table>
+</section>
+
+<section id="health-tips" class="blog-section">
+    <h2>Health Tips & Advice</h2>
+
+    <div class="blog-container">
+
+        <div class="blog-card">
+    <img src="https://via.placeholder.com/300x180" alt="health">
+    <h3>Stay Hydrated Daily</h3>
+    <p>Drinking enough water improves metabolism and overall health.</p>
+    <a href="upload.php?info=hydration">Read More</a>
+</div>
+
+<div class="blog-card">
+    <img src="https://via.placeholder.com/300x180" alt="health">
+    <h3>Proper Antibiotic Use</h3>
+    <p>Do not misuse antibiotics without doctor prescription.</p>
+    <a href="upload.php?info=antibiotic">Read More</a>
+</div>
+
+<div class="blog-card">
+    <img src="https://via.placeholder.com/300x180" alt="health">
+    <h3>Balanced Diet</h3>
+    <p>A balanced diet keeps immunity strong and prevents diseases.</p>
+    <a href="upload.php?info=diet">Read More</a>
+</div>
+
+    </div>
+</section>
+
+<section class="form-section">
+    <h2>Upload Prescription</h2>
+
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <input type="text" name="patient_name" placeholder="Patient Name" required>
+        <input type="text" name="doctor_name" placeholder="Doctor Name" required>
+
+        
+        <input type="text" name="phone" placeholder="Phone Number" required>
+        <textarea name="notes" placeholder="Notes"></textarea>
+
+        <button type="submit" name="submit">Submit</button>
+    </form>
+</section>
+
+</body>
+</html>

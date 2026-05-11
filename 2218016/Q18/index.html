@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Labim Pharmacy — trusted medicines, prescriptions, delivery, and health advice."
+    />
+    <title>Labim Pharmacy — Your Health Partner</title>
+    <!-- Custom fonts — not a CSS framework -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="#" aria-label="Labim Pharmacy home">
+          <span class="logo-icon">L</span>
+          Labim Pharmacy
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#catalog">Catalog</a></li>
+            <li><a href="#health-tips">Health Tips</a></li>
+            <li><a href="#prescription">Upload Rx</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero banner -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <h1 id="hero-heading">Care You Can Trust, Right in Your Neighborhood</h1>
+            <p class="hero-lead">
+              Labim Pharmacy helps you manage prescriptions, explore trusted medicines, and speak
+              with caring professionals—all in one friendly place.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="#prescription">Upload prescription</a>
+              <a class="btn btn-outline" href="#catalog">Browse medicines</a>
+            </div>
+          </div>
+          <aside class="hero-stats" aria-label="Quick pharmacy facts">
+            <div class="stat">
+              <span class="stat-num">15+</span>
+              <span class="stat-label">Years serving families</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">24/7</span>
+              <span class="stat-label">Emergency guidance</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">Free</span>
+              <span class="stat-label">Health consultations*</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services" aria-labelledby="services-heading">
+        <div class="container">
+          <div class="section-title">
+            <h2 id="services-heading">How we help</h2>
+            <p>Three pillars that make pharmacy visits simple and stress-free.</p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">Rx</div>
+              <h3>Prescriptions</h3>
+              <p>
+                Safe dispensing, refill reminders, and medication reviews so you understand every dose
+                and timing with confidence.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">🚚</div>
+              <h3>Home delivery</h3>
+              <p>
+                Reliable same-day or next-day delivery for eligible orders—temperature-sensitive items
+                handled with proper cold-chain care.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">💬</div>
+              <h3>Health advice</h3>
+              <p>
+                Ask our pharmacists about side effects, interactions, OTC choices, vaccines, and
+                everyday wellness—all with a listening ear.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Emergency contact -->
+      <section class="emergency" aria-labelledby="emergency-heading">
+        <div class="container emergency-inner">
+          <div class="emergency-copy">
+            <h2 id="emergency-heading">Emergency & urgent care lines</h2>
+            <p>
+              Life-threatening emergencies: call emergency services immediately. For urgent pharmacy
+              questions after hours, use the numbers below.
+            </p>
+          </div>
+          <div class="emergency-box">
+            <div class="contact-pill">
+              <strong>Poison / overdose</strong>
+              <a href="tel:18002221222">1-800-222-1222</a>
+            </div>
+            <div class="contact-pill">
+              <strong>Labim after-hours</strong>
+              <a href="tel:15559876543">(555) 987-6543</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Medicine catalog table -->
+      <section id="catalog" class="catalog" aria-labelledby="catalog-heading">
+        <div class="container">
+          <div class="section-title">
+            <h2 id="catalog-heading">Sample medicine catalog</h2>
+            <p>
+              Illustrative listings for coursework. Actual stock and pricing may vary—please visit or
+              call us before planning a purchase.
+            </p>
+          </div>
+          <div class="table-wrap" role="region" aria-label="Medicine catalog table">
+            <table class="catalog-table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Generic name</th>
+                  <th scope="col">Manufacturer</th>
+                  <th scope="col">Dosage form</th>
+                  <th scope="col">Price (USD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Amoxinil</td>
+                  <td>Amoxicillin</td>
+                  <td>BluePeak Labs</td>
+                  <td>Capsules 500 mg</td>
+                  <td><span class="price">$12.99</span></td>
+                </tr>
+                <tr>
+                  <td>ZenithCalm-D</td>
+                  <td>Loratadine</td>
+                  <td>Sunvale Pharma</td>
+                  <td>Oral tablets 10 mg</td>
+                  <td><span class="price">$8.49</span></td>
+                </tr>
+                <tr>
+                  <td>MetroPress</td>
+                  <td>Metformin HCl</td>
+                  <td>Riverbend Generics</td>
+                  <td>Extended-release tablets 750 mg</td>
+                  <td><span class="price">$15.75</span></td>
+                </tr>
+                <tr>
+                  <td>Pediacare Drops</td>
+                  <td>Acetaminophen</td>
+                  <td>Harbor Pediatric</td>
+                  <td>Oral suspension 160 mg / 5 mL</td>
+                  <td><span class="price">$6.25</span></td>
+                </tr>
+                <tr>
+                  <td>GastroEase</td>
+                  <td>Omeprazole</td>
+                  <td>Elevate Formulations</td>
+                  <td>Delayed-release capsules 20 mg</td>
+                  <td><span class="price">$11.60</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Health tips / blog -->
+      <section id="health-tips" aria-labelledby="blog-heading">
+        <div class="container">
+          <div class="section-title">
+            <h2 id="blog-heading">Health tips blog</h2>
+            <p>Short, practical reads from our pharmacists—not a substitute for medical advice.</p>
+          </div>
+          <div class="blog-grid">
+            <article class="article-card">
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=640&q=75"
+                  alt="Person organizing daily medication in a planner"
+                  width="640"
+                  height="400"
+                  loading="lazy"
+                />
+              </figure>
+              <div class="article-body">
+                <p class="article-meta">Hydration • 5 min read</p>
+                <h3>Why timing matters when you take daily medicines</h3>
+                <p class="excerpt">
+                  Meal spacing, sleep cycles, and other prescriptions can interact with absorption.
+                  Here's a beginner-friendly checklist to discuss with us.
+                </p>
+                <a class="read-more" href="#health-tips"
+                  >Read more <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article class="article-card">
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=640&q=75"
+                  alt="Fresh vegetables and citrus on a kitchen counter"
+                  width="640"
+                  height="400"
+                  loading="lazy"
+                />
+              </figure>
+              <div class="article-body">
+                <p class="article-meta">Nutrition • 4 min read</p>
+                <h3>Eating well on a tight schedule (without fad diets)</h3>
+                <p class="excerpt">
+                  Simple plate planning, pantry staples, and how fiber supports stable energy when you
+                  are juggling work and family.
+                </p>
+                <a class="read-more" href="#health-tips"
+                  >Read more <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article class="article-card">
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=640&q=75"
+                  alt="Hand washing with soap at a sink"
+                  width="640"
+                  height="400"
+                  loading="lazy"
+                />
+              </figure>
+              <div class="article-body">
+                <p class="article-meta">Prevention • 3 min read</p>
+                <h3>Fight seasonal bugs: habits that pharmacists swear by</h3>
+                <p class="excerpt">
+                  Sleep, vaccines, masking when you're sick—small actions stack up. We summarize what
+                  the evidence supports today.
+                </p>
+                <a class="read-more" href="#health-tips"
+                  >Read more <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prescription upload form -->
+      <section id="prescription" class="prescription" aria-labelledby="rx-heading">
+        <div class="container">
+          <div class="section-title">
+            <h2 id="rx-heading">Upload your prescription</h2>
+            <p>
+              For this academic demo, submitting the form previews your details only—nothing is sent to
+              a server.
+            </p>
+          </div>
+          <form class="form-layout" id="rx-form" novalidate>
+            <div class="form-group">
+              <label for="patient-name">Patient name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="patient-name"
+                name="patientName"
+                autocomplete="name"
+                required
+                placeholder="Full name as on prescription"
+              />
+            </div>
+            <div class="form-group">
+              <label for="doctor-name">Doctor name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="doctor-name"
+                name="doctorName"
+                required
+                placeholder="Prescribing physician"
+              />
+            </div>
+            <div class="form-group form-full">
+              <label for="rx-file">Prescription file <span class="required">*</span></label>
+              <div class="file-upload-area">
+                <input type="file" id="rx-file" name="rxFile" accept=".pdf,.jpg,.jpeg,.png" required />
+                <div class="file-upload-text">
+                  <strong>Drop a file here or tap to browse</strong>
+                  <span id="file-name-display">PDF, JPG, or PNG • max 10 MB recommended</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-full">
+              <label for="phone">Phone <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="(555) 123-4567" />
+            </div>
+            <div class="form-group form-full">
+              <label for="notes">Notes <span class="label-optional">(optional)</span></label>
+              <textarea id="notes" name="notes" placeholder="Allergies, delivery window, Rx number…"></textarea>
+            </div>
+            <div class="form-actions form-full">
+              <button type="submit" class="btn btn-primary btn-large">
+                Submit prescription
+              </button>
+              <p class="form-note" id="form-feedback" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Labim Pharmacy</strong> — academic demonstration site.</p>
+      <p>123 Wellness Avenue · Cityburg · Hours: Mon–Sat 9–8 &nbsp;·&nbsp; Sun 10–5</p>
+      <p>
+        <a href="tel:15551234567">(555) 123-4567</a> ·
+        <a href="mailto:care@labimpharmacy.example">care@labimpharmacy.example</a>
+      </p>
+      <p><small>*Subject to pharmacist availability.</small></p>
+    </footer>
+
+    <!-- Small enhancement: filename display & demo submit message -->
+    <script>
+      (function () {
+        var fileInput = document.getElementById("rx-file");
+        var fileDisplay = document.getElementById("file-name-display");
+        var form = document.getElementById("rx-form");
+        var feedback = document.getElementById("form-feedback");
+
+        if (fileInput && fileDisplay) {
+          fileInput.addEventListener("change", function () {
+            if (fileInput.files && fileInput.files.length > 0) {
+              fileDisplay.textContent = "Selected: " + fileInput.files[0].name;
+            } else {
+              fileDisplay.textContent = "PDF, JPG, or PNG • max 10 MB recommended";
+            }
+          });
+        }
+
+        if (form && feedback) {
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (!form.checkValidity()) {
+              feedback.style.color = "#b45309";
+              feedback.textContent = "Please fill in all required fields and attach a prescription file.";
+              return;
+            }
+            feedback.style.color = "#0f766e";
+            feedback.textContent =
+              "Thank you! In a live site we'd queue your Rx for verification. Patient: " +
+              document.getElementById("patient-name").value.trim();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

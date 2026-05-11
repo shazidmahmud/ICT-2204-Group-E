@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">Travel BD</div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="booking.html" class="active">Booking</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+</nav>
+
+<section class="form-section">
+
+<h2>Book Your Trip</h2>
+
+<form action="backend.php" method="POST">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Email" required>
+
+    <select name="destination">
+
+        <option>Cox's Bazar</option>
+        <option>Sundarbans</option>
+        <option>Bandarban</option>
+        <option>Saint Martin</option>
+
+    </select>
+
+    <input type="date" name="date" required>
+
+    <input type="number" name="persons" placeholder="Number of Persons">
+
+    <button type="submit">Submit Booking</button>
+
+</form>
+
+</section>
+
+</body>
+</html>

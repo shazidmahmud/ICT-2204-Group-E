@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Bangladesh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">Travel BD</div>
+
+    <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+
+</nav>
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>Explore Bangladesh</h1>
+
+        <p>
+            Discover Cox’s Bazar, Sundarbans, Bandarban & more
+        </p>
+
+        <!-- SMOOTH SCROLL BUTTON -->
+        <a href="#destinations">
+            <button>Explore Destinations</button>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ================= TOP DESTINATIONS ================= -->
+
+<section class="section" id="destinations">
+
+    <h2>Top Destinations</h2>
+
+    <div class="flex-container">
+
+        <div class="card">
+
+            <img src="images/cox.jpg">
+
+            <h3>Cox's Bazar</h3>
+
+            <p>World longest sea beach in Bangladesh.</p>
+
+            <a href="booking.html">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <img src="images/sundarban.jpg">
+
+            <h3>Sundarbans</h3>
+
+            <p>Home of Royal Bengal Tiger and mangrove forest.</p>
+
+            <a href="booking.html">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <img src="images/bandarban.jpg">
+
+            <h3>Bandarban</h3>
+
+            <p>Hills, waterfalls and natural beauty.</p>
+
+            <a href="booking.html">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= NEWS PREVIEW ================= -->
+
+<section class="section">
+
+    <h2>Latest News</h2>
+
+    <div class="flex-container">
+
+        <div class="card">
+
+            <h3>New Tourism Plan</h3>
+
+            <p>Government increases tourism facilities.</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Record Visitors</h3>
+
+            <p>Cox’s Bazar sees record number of tourists.</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Eco Tourism</h3>
+
+            <p>New eco-friendly travel initiatives launched.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>© 2026 Travel Bangladesh | All Rights Reserved</p>
+
+</footer>
+
+<!-- ================= POPUP AD ================= -->
+
+<div id="popupAd" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <span class="close-btn" onclick="closeAd()">&times;</span>
+
+        <h2>🌍 Special Offer</h2>
+
+        <p>Get 20% OFF on Cox’s Bazar Tour Packages!</p>
+
+        <button onclick="window.location.href='booking.html'">
+            Book Now
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+    // Show popup after page load
+    window.onload = function(){
+
+        setTimeout(function(){
+            document.getElementById("popupAd")
+            .style.display = "flex";
+        }, 2000);
+
+    };
+
+    function closeAd(){
+        document.getElementById("popupAd")
+        .style.display = "none";
+    }
+
+</script>
+
+</body>
+</html>

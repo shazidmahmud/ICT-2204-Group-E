@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VillageMart • Local Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        :root {
+            --primary: #15803d;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #15803d;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .banner-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+        }
+
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: #15803d;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgb(21 128 61 / 0.3);
+        }
+
+        .stock-in {
+            background-color: #166534;
+            color: #86efac;
+        }
+        
+        .stock-low {
+            background-color: #854d0e;
+            color: #fcd34d;
+        }
+    </style>
+</head>
+<body class="tail-container bg-gray-50 text-gray-800">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-10 h-10 bg-green-700 rounded-2xl flex items-center justify-center text-white text-2xl font-bold">🌱</div>
+                    <div>
+                        <span class="heading-font text-2xl font-bold tracking-tight text-green-800">VillageMart</span>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#" onclick="navigateTo('home')" class="nav-link text-gray-700 hover:text-green-700 cursor-pointer">Home</a>
+                    <a href="#" onclick="navigateTo('shop')" class="nav-link text-gray-700 hover:text-green-700 cursor-pointer">Shop</a>
+                    <a href="#" onclick="navigateTo('about')" class="nav-link text-gray-700 hover:text-green-700 cursor-pointer">About</a>
+                    <a href="#" onclick="navigateTo('contact')" class="nav-link text-gray-700 hover:text-green-700 cursor-pointer">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-x-6">
+                    <button onclick="toggleCart()" class="relative p-2 hover:bg-gray-100 rounded-xl transition-colors">
+                        <i class="fa-solid fa-shopping-bag text-xl"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                    </button>
+                    <button onclick="navigateTo('shop')" 
+                            class="bg-green-700 hover:bg-green-800 text-white px-6 py-2.5 rounded-2xl text-sm font-semibold flex items-center gap-x-2 transition-colors">
+                        <i class="fa-solid fa-store"></i>
+                        <span>Browse Store</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <div id="main-content">
+
+        <!-- HOME PAGE -->
+        <div id="home-page">
+            <!-- HERO BANNER -->
+            <div class="banner-bg h-screen flex items-center text-white">
+                <div class="max-w-4xl mx-auto px-6 text-center">
+                    <h1 class="heading-font text-6xl md:text-7xl font-bold mb-6 leading-none">Fresh from<br>Our Village to<br>Your Table</h1>
+                    <p class="text-xl md:text-2xl mb-10 max-w-md mx-auto">Your neighborhood store since 2012. Quality products at honest prices.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="navigateTo('shop')" 
+                                class="bg-white text-green-800 px-10 py-4 rounded-3xl font-semibold text-lg hover:bg-green-100 transition-all flex items-center justify-center gap-x-3">
+                            Shop Now
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button onclick="navigateTo('about')" 
+                                class="border-2 border-white px-8 py-4 rounded-3xl font-medium text-lg hover:bg-white/10 transition-all">
+                            Our Story
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TODAY'S OFFERS -->
+            <div class="max-w-7xl mx-auto px-6 py-16">
+                <div class="flex items-end justify-between mb-10">
+                    <div>
+                        <span class="px-4 py-1.5 bg-orange-100 text-orange-700 text-sm font-semibold rounded-3xl">🔥 TODAY ONLY</span>
+                        <h2 class="heading-font text-5xl font-bold mt-3">Today's Special Offers</h2>
+                    </div>
+                    <a href="#" onclick="navigateTo('shop')" class="text-green-700 hover:underline flex items-center gap-x-2 font-medium">
+                        View all <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="offers-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- FEATURED PRODUCTS -->
+            <div class="bg-white py-16">
+                <div class="max-w-7xl mx-auto px-6">
+                    <h2 class="heading-font text-5xl font-bold text-center mb-4">Featured Products</h2>
+                    <p class="text-center text-gray-600 max-w-md mx-auto mb-12">Handpicked favorites from our local suppliers</p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="featured-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIGHLIGHT SECTION -->
+            <div class="bg-green-50 py-20">
+                <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+                    <div class="md:col-span-5">
+                        <img src="https://picsum.photos/id/1016/800/900" alt="Shop interior" 
+                             class="rounded-3xl shadow-2xl w-full">
+                    </div>
+                    <div class="md:col-span-7">
+                        <div class="max-w-lg">
+                            <span class="text-green-700 font-semibold">LOCAL • FRESH • TRUSTED</span>
+                            <h2 class="heading-font text-5xl leading-tight font-bold mt-3 mb-6">Supporting our community one basket at a time</h2>
+                            <p class="text-lg text-gray-600 mb-8">VillageMart has been serving the neighborhood for over 12 years. We source directly from local farmers and artisans.</p>
+                            
+                            <div class="grid grid-cols-3 gap-8">
+                                <div>
+                                    <div class="text-4xl font-bold text-green-700">500+</div>
+                                    <div class="text-sm text-gray-500">Products</div>
+                                </div>
+                                <div>
+                                    <div class="text-4xl font-bold text-green-700">1200+</div>
+                                    <div class="text-sm text-gray-500">Happy Customers</div>
+                                </div>
+                                <div>
+                                    <div class="text-4xl font-bold text-green-700">12</div>
+                                    <div class="text-sm text-gray-500">Years</div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="navigateTo('about')" 
+                                    class="mt-12 bg-green-700 text-white px-8 py-4 rounded-2xl font-semibold flex items-center gap-x-3">
+                                Meet the Team
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHOP PAGE -->
+        <div id="shop-page" class="hidden max-w-7xl mx-auto px-6 py-12">
+            <div class="flex flex-col lg:flex-row gap-10">
+                <!-- Sidebar Filters -->
+                <div class="lg:w-64 flex-shrink-0">
+                    <h3 class="font-semibold text-xl mb-6">Categories</h3>
+                    <div class="flex flex-wrap gap-2" id="category-filters">
+                        <!-- JS populated -->
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="font-semibold text-xl mb-4">Price Range</h3>
+                        <div class="px-2">
+                            <input type="range" min="0" max="200" value="150" class="w-full accent-green-700">
+                            <div class="flex justify-between text-sm text-gray-500 mt-1">
+                                <span>$0</span>
+                                <span>$200</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="heading-font text-4xl font-bold">All Products</h2>
+                        <div class="text-sm text-gray-500">
+                            <span id="product-count">24</span> items
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8" id="all-products-grid">
+                        <!-- JS populated -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCT DETAIL MODAL -->
+        <div id="product-modal" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4">
+            <div onclick="event.stopImmediatePropagation()" 
+                 class="bg-white max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl">
+                
+                <div class="grid md:grid-cols-2">
+                    <!-- Image -->
+                    <div class="bg-gray-100 p-8 flex items-center justify-center" id="modal-image-container">
+                        <!-- JS image -->
+                    </div>
+                    
+                    <!-- Details -->
+                    <div class="p-8 md:p-10">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h2 id="modal-name" class="heading-font text-3xl font-bold"></h2>
+                                <p id="modal-category" class="text-green-600 font-medium"></p>
+                            </div>
+                            <button onclick="closeModal()" class="text-3xl leading-none text-gray-400 hover:text-gray-600">×</button>
+                        </div>
+                        
+                        <div class="flex items-center gap-x-4 my-6">
+                            <div id="modal-price" class="text-4xl font-semibold"></div>
+                            <div id="modal-stock" class="px-4 py-1 text-sm font-medium rounded-3xl"></div>
+                        </div>
+                        
+                        <p id="modal-description" class="text-gray-600 leading-relaxed mb-8"></p>
+                        
+                        <div class="border-t border-b py-6 mb-8">
+                            <div class="flex items-center justify-between text-sm">
+                                <div class="flex items-center gap-x-2">
+                                    <i class="fa-solid fa-truck text-green-600"></i>
+                                    <span>Free delivery on orders over $50</span>
+                                </div>
+                                <div class="text-green-700 font-medium">In stock • Ships today</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="addToCartFromModal()" 
+                                class="w-full bg-green-700 hover:bg-green-800 text-white py-5 rounded-3xl font-semibold text-lg flex items-center justify-center gap-x-3 transition-colors">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            ADD TO CART
+                        </button>
+                        
+                        <div onclick="closeModal()" 
+                             class="text-center text-sm text-gray-500 mt-6 cursor-pointer hover:text-gray-700">Close</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about-page" class="hidden max-w-4xl mx-auto px-6 py-20">
+            <h1 class="heading-font text-6xl font-bold text-center mb-6">Our Story</h1>
+            <p class="text-center text-xl text-gray-600 max-w-2xl mx-auto">A family-owned store rooted in community values.</p>
+            
+            <div class="prose prose-lg mx-auto mt-16">
+                <p class="text-lg">VillageMart was founded in 2012 by the Patel family with a simple mission: bring fresh, affordable, and quality goods to our neighborhood. What started as a small corner shop has grown into the heart of our local community.</p>
+                
+                <div class="my-16 grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="font-semibold text-2xl mb-4">Meet the Owner</h3>
+                        <img src="https://picsum.photos/id/64/600/400" alt="Owner" class="rounded-3xl mb-6">
+                        <p class="font-medium">Ramesh Patel</p>
+                        <p class="text-green-700">Founder &amp; Owner</p>
+                        <p class="mt-6 text-gray-600">"We treat every customer like family. That's why people keep coming back."</p>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="uppercase text-xs tracking-widest text-gray-500">Our Values</div>
+                            <ul class="mt-4 space-y-4">
+                                <li class="flex gap-x-4"><span class="text-2xl">🌾</span> <span>Support local farmers</span></li>
+                                <li class="flex gap-x-4"><span class="text-2xl">♻️</span> <span>Eco-friendly packaging</span></li>
+                                <li class="flex gap-x-4"><span class="text-2xl">🤝</span> <span>Community first</span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 p-8 rounded-3xl">
+                            <p class="italic">"VillageMart isn't just a store — it's where neighbors meet, stories are shared, and memories are made."</p>
+                            <p class="text-right mt-6 text-green-800 font-medium">- Maria Gonzalez, Regular since 2015</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact-page" class="hidden max-w-2xl mx-auto px-6 py-20">
+            <h1 class="heading-font text-6xl font-bold text-center mb-4">Get in Touch</h1>
+            <p class="text-center text-gray-600">Have a question? Want to place a bulk order? We'd love to hear from you.</p>
+            
+            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="mt-16 bg-white shadow-xl rounded-3xl p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Full Name</label>
+                        <input type="text" id="name" required 
+                               class="w-full px-6 py-4 border border-gray-200 focus:border-green-400 rounded-2xl outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="phone" required 
+                               class="w-full px-6 py-4 border border-gray-200 focus:border-green-400 rounded-2xl outline-none">
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-sm font-medium mb-2">Message</label>
+                    <textarea id="message" rows="6" required
+                              class="w-full px-6 py-4 border border-gray-200 focus:border-green-400 rounded-3xl outline-none resize-none"></textarea>
+                </div>
+                
+                <button type="submit"
+                        class="mt-10 w-full bg-green-700 text-white py-6 rounded-3xl text-lg font-semibold hover:bg-green-800 transition-colors">
+                    SEND MESSAGE
+                </button>
+            </form>
+            
+            <div class="mt-16 text-center">
+                <p class="text-sm text-gray-500">📍 124 Oak Street, Riverside Village</p>
+                <p class="text-sm text-gray-500 mt-2">📞 (555) 123-9876</p>
+                <p class="text-sm text-green-700 mt-8">Open daily 7am – 9pm</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-green-950 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center gap-x-3 text-white mb-6">
+                    <div class="w-9 h-9 bg-white rounded-2xl flex items-center justify-center text-green-800 text-3xl">🌱</div>
+                    <span class="heading-font text-3xl font-bold">VillageMart</span>
+                </div>
+                <p class="text-green-200 text-sm">Your trusted local marketplace since 2012.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-6">Quick Links</h4>
+                <div class="space-y-3 text-sm">
+                    <div onclick="navigateTo('shop')" class="cursor-pointer hover:text-green-400">Shop Products</div>
+                    <div onclick="navigateTo('about')" class="cursor-pointer hover:text-green-400">Our Story</div>
+                    <div class="cursor-pointer hover:text-green-400">Weekly Flyer</div>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-6">Contact</h4>
+                <div class="space-y-3 text-sm">
+                    <div>124 Oak Street</div>
+                    <div>Riverside Village, CA</div>
+                    <div>(555) 123-9876</div>
+                    <div>hello@villagemart.local</div>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-6">Follow Us</h4>
+                <div class="flex gap-x-5 text-2xl">
+                    <i onclick="alert('Instagram opened (demo)')" class="fa-brands fa-instagram cursor-pointer hover:text-green-400"></i>
+                    <i onclick="alert('Facebook opened (demo)')" class="fa-brands fa-facebook cursor-pointer hover:text-green-400"></i>
+                </div>
+                
+                <div class="mt-10 pt-6 border-t border-green-900 text-xs text-green-400">
+                    © 2026 VillageMart. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MINI CART DRAWER -->
+    <div id="cart-drawer" class="hidden fixed top-0 right-0 h-full w-full max-w-xs bg-white shadow-2xl z-[200] translate-x-full transition-transform duration-300">
+        <div class="p-6 h-full flex flex-col">
+            <div class="flex justify-between items-center pb-6 border-b">
+                <h3 class="font-semibold text-2xl">Your Cart</h3>
+                <button onclick="toggleCart()" class="text-4xl text-gray-300 hover:text-gray-500">×</button>
+            </div>
+            
+            <div id="cart-items" class="flex-1 py-8 overflow-auto space-y-8">
+                <!-- JS populated -->
+            </div>
+            
+            <div class="border-t pt-6">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-500">Subtotal</span>
+                    <span id="cart-subtotal" class="font-semibold">$87.45</span>
+                </div>
+                <button onclick="checkout()" 
+                        class="w-full py-6 bg-green-700 text-white rounded-3xl font-semibold mt-6">
+                    PROCEED TO CHECKOUT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script already included via CDN
+        
+        // Sample Products
+        let products = [
+            {
+                id: 1,
+                name: "Organic Bananas",
+                category: "Produce",
+                price: 3.49,
+                stock: "In Stock",
+                img: "https://picsum.photos/id/1080/400/400",
+                description: "Freshly picked organic bananas from local farms. Sweet and nutritious."
+            },
+            {
+                id: 2,
+                name: "Whole Milk",
+                category: "Dairy",
+                price: 4.29,
+                stock: "In Stock",
+                img: "https://picsum.photos/id/201/400/400",
+                description: "Fresh farm milk in glass bottles. Delivered daily."
+            },
+            {
+                id: 3,
+                name: "Free Range Eggs",
+                category: "Dairy",
+                price: 5.99,
+                stock: "Low Stock",
+                img: "https://picsum.photos/id/292/400/400",
+                description: "12 pasture-raised eggs from happy chickens."
+            },
+            {
+                id: 4,
+                name: "Sourdough Bread",
+                category: "Bakery",
+                price: 6.49,
+                stock: "In Stock",
+                img: "https://picsum.photos/id/431/400/400",
+                description: "Artisan sourdough baked fresh every morning."
+            },
+            {
+                id: 5,
+                name: "Avocados (3 pack)",
+                category: "Produce",
+                price: 4.99,
+                stock: "In Stock",
+                img: "https://picsum.photos/id/669/400/400",
+                description: "Perfectly ripe Hass avocados."
+            },
+            {
+                id: 6,
+                name: "Cheddar Cheese",
+                category: "Dairy",
+                price: 7.29,
+                stock: "In Stock",
+                img: "https://picsum.photos/id/870/400/400",
+                description: "Aged sharp cheddar from local creamery."
+            }
+        ]
+        
+        let cart = []
+        
+        // Render product card
+        function createProductCard(product, isFeatured = false) {
+            const div = document.createElement('div')
+            div.className = `product-card bg-white rounded-3xl overflow-hidden border border-gray-100 cursor-pointer ${isFeatured ? 'shadow-md' : ''}`
+            div.innerHTML = `
+                <div class="relative">
+                    <img src="${product.img}" class="w-full h-52 object-cover">
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-3xl text-sm font-semibold shadow">
+                        $${product.price}
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="text-xs uppercase tracking-widest text-green-600">${product.category}</div>
+                    <h4 class="font-semibold text-lg mt-1 mb-2 line-clamp-2">${product.name}</h4>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs px-4 py-1 rounded-3xl ${product.stock === 'In Stock' ? 'stock-in' : 'stock-low'}">
+                            ${product.stock}
+                        </span>
+                        <button onclick="event.stopImmediatePropagation(); quickAddToCart(${product.id});" 
+                                class="text-green-700 hover:text-green-800">
+                            <i class="fa-solid fa-cart-plus text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            `
+            div.onclick = () => showProductDetail(product)
+            return div
+        }
+        
+        // Populate offers and featured
+        function populateHome() {
+            const offersGrid = document.getElementById('offers-grid')
+            const featuredGrid = document.getElementById('featured-grid')
+            
+            offersGrid.innerHTML = ''
+            featuredGrid.innerHTML = ''
+            
+            // Today's offers (first 4)
+            products.slice(0, 4).forEach(product => {
+                const card = createProductCard(product)
+                offersGrid.appendChild(card)
+            })
+            
+            // Featured
+            products.forEach(product => {
+                const card = createProductCard(product, true)
+                featuredGrid.appendChild(card)
+            })
+        }
+        
+        // Populate shop page
+        function populateShop() {
+            const grid = document.getElementById('all-products-grid')
+            grid.innerHTML = ''
+            
+            products.forEach(product => {
+                const card = createProductCard(product)
+                grid.appendChild(card)
+            })
+            
+            // Category filters
+            const categories = [...new Set(products.map(p => p.category))]
+            const filterContainer = document.getElementById('category-filters')
+            filterContainer.innerHTML = ''
+            
+            categories.forEach(cat => {
+                const btn = document.createElement('button')
+                btn.className = `filter-btn px-6 py-3 text-sm border border-gray-200 rounded-3xl hover:border-green-300 active`
+                btn.textContent = cat
+                btn.onclick = () => filterByCategory(cat, btn)
+                filterContainer.appendChild(btn)
+            })
+        }
+        
+        function filterByCategory(category, btn) {
+            // Toggle active state
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'))
+            btn.classList.add('active')
+            
+            const grid = document.getElementById('all-products-grid')
+            grid.innerHTML = ''
+            
+            const filtered = products.filter(p => p.category === category)
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center py-12 text-gray-400">No products found in this category.</p>`
+                return
+            }
+            
+            filtered.forEach(product => {
+                const card = createProductCard(product)
+                grid.appendChild(card)
+            })
+        }
+        
+        // Show product detail
+        let currentProduct = null
+        
+        function showProductDetail(product) {
+            currentProduct = product
+            document.getElementById('modal-name').textContent = product.name
+            document.getElementById('modal-category').textContent = product.category
+            document.getElementById('modal-price').innerHTML = `$${product.price} <span class="text-base font-normal text-gray-400">/ each</span>`
+            
+            const stockEl = document.getElementById('modal-stock')
+            stockEl.textContent = product.stock
+            stockEl.className = `px-5 py-2 text-sm font-medium rounded-3xl ${product.stock === 'In Stock' ? 'stock-in' : 'stock-low'}`
+            
+            document.getElementById('modal-description').textContent = product.description
+            
+            const imgContainer = document.getElementById('modal-image-container')
+            imgContainer.innerHTML = `<img src="${product.img}" class="max-h-[420px] rounded-3xl shadow-inner object-contain">`
+            
+            document.getElementById('product-modal').classList.remove('hidden')
+            document.getElementById('product-modal').classList.add('flex')
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('product-modal')
+            modal.classList.add('hidden')
+            modal.classList.remove('flex')
+        }
+        
+        function addToCartFromModal() {
+            if (currentProduct) {
+                addToCart(currentProduct)
+                closeModal()
+            }
+        }
+        
+        function quickAddToCart(id) {
+            const product = products.find(p => p.id === id)
+            if (product) {
+                addToCart(product)
+                event.stopImmediatePropagation()
+            }
+        }
+        
+        function addToCart(product) {
+            // Check if already in cart
+            const existing = cart.find(item => item.id === product.id)
+            if (existing) {
+                existing.quantity = (existing.quantity || 1) + 1
+            } else {
+                cart.push({...product, quantity: 1})
+            }
+            
+            updateCartCount()
+            
+            // Toast
+            showToast(`${product.name} added to cart`)
+        }
+        
+        function updateCartCount() {
+            let count = 0
+            cart.forEach(item => count += item.quantity || 1)
+            document.getElementById('cart-count').textContent = count
+        }
+        
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer')
+            if (drawer.classList.contains('hidden')) {
+                renderCart()
+                drawer.classList.remove('hidden')
+                setTimeout(() => {
+                    drawer.style.transform = 'translateX(0)'
+                }, 10)
+            } else {
+                drawer.style.transform = 'translateX(100%)'
+                setTimeout(() => {
+                    drawer.classList.add('hidden')
+                }, 300)
+            }
+        }
+        
+        function renderCart() {
+            const container = document.getElementById('cart-items')
+            container.innerHTML = ''
+            
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-400 py-12">Your cart is empty</p>`
+                document.getElementById('cart-subtotal').textContent = '$0.00'
+                return
+            }
+            
+            let subtotal = 0
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * (item.quantity || 1)
+                subtotal += itemTotal
+                
+                const div = document.createElement('div')
+                div.className = "flex gap-4"
+                div.innerHTML = `
+                    <img src="${item.img}" class="w-20 h-20 object-cover rounded-2xl">
+                    <div class="flex-1">
+                        <div class="flex justify-between">
+                            <div class="font-medium">${item.name}</div>
+                            <div class="font-semibold">$${(itemTotal).toFixed(2)}</div>
+                        </div>
+                        <div class="text-xs text-gray-500">${item.category}</div>
+                        <div class="flex items-center justify-between mt-4">
+                            <div class="flex border rounded-2xl">
+                                <button onclick="changeCartQty(${index}, -1)" class="w-8 h-8 flex items-center justify-center">-</button>
+                                <span class="w-8 h-8 flex items-center justify-center border-x">${item.quantity || 1}</span>
+                                <button onclick="changeCartQty(${index}, 1)" class="w-8 h-8 flex items-center justify-center">+</button>
+                            </div>
+                            <button onclick="removeFromCart(${index})" class="text-red-400 text-sm hover:text-red-600">Remove</button>
+                        </div>
+                    </div>
+                `
+                container.appendChild(div)
+            })
+            
+            document.getElementById('cart-subtotal').textContent = '$' + subtotal.toFixed(2)
+        }
+        
+        function changeCartQty(index, change) {
+            const item = cart[index]
+            if (!item) return
+            item.quantity = (item.quantity || 1) + change
+            if (item.quantity < 1) item.quantity = 1
+            renderCart()
+            updateCartCount()
+        }
+        
+        function removeFromCart(index) {
+            cart.splice(index, 1)
+            renderCart()
+            updateCartCount()
+        }
+        
+        function checkout() {
+            if (cart.length === 0) return
+            alert("Thank you! This is a demo. Your order would be processed here.")
+            cart = []
+            updateCartCount()
+            toggleCart()
+        }
+        
+        function showToast(message) {
+            const toast = document.createElement('div')
+            toast.style.position = 'fixed'
+            toast.style.bottom = '24px'
+            toast.style.left = '50%'
+            toast.style.transform = 'translateX(-50%)'
+            toast.style.backgroundColor = '#166534'
+            toast.style.color = 'white'
+            toast.style.padding = '14px 28px'
+            toast.style.borderRadius = '9999px'
+            toast.style.boxShadow = '0 10px 15px -3px rgb(0 0 0 / 0.2)'
+            toast.style.zIndex = '9999'
+            toast.style.whiteSpace = 'nowrap'
+            toast.textContent = message
+            document.body.appendChild(toast)
+            
+            setTimeout(() => {
+                toast.style.transition = 'all 0.3s ease'
+                toast.style.opacity = '0'
+                toast.style.transform = 'translateX(-50%) translateY(20px)'
+                setTimeout(() => toast.remove(), 300)
+            }, 2200)
+        }
+        
+        function navigateTo(page) {
+            // Hide all pages
+            document.getElementById('home-page').classList.add('hidden')
+            document.getElementById('shop-page').classList.add('hidden')
+            document.getElementById('about-page').classList.add('hidden')
+            document.getElementById('contact-page').classList.add('hidden')
+            
+            // Show selected
+            if (page === 'home') {
+                document.getElementById('home-page').classList.remove('hidden')
+            } else if (page === 'shop') {
+                document.getElementById('shop-page').classList.remove('hidden')
+            } else if (page === 'about') {
+                document.getElementById('about-page').classList.remove('hidden')
+            } else if (page === 'contact') {
+                document.getElementById('contact-page').classList.remove('hidden')
+            }
+        }
+        
+        function handleContactSubmit(e) {
+            e.preventDefault()
+            alert("Thank you! Your message has been received. We'll get back to you shortly. (Demo)")
+            e.target.reset()
+        }
+        
+        // Initialize everything
+        function initializeWebsite() {
+            populateHome()
+            populateShop()
+            updateCartCount()
+            
+            // Make first category button active
+            setTimeout(() => {
+                const firstBtn = document.querySelector('.filter-btn')
+                if (firstBtn) firstBtn.classList.add('active')
+            }, 800)
+            
+            // Keyboard escape support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape") {
+                    const modal = document.getElementById('product-modal')
+                    if (!modal.classList.contains('hidden')) closeModal()
+                    
+                    const drawer = document.getElementById('cart-drawer')
+                    if (!drawer.classList.contains('hidden')) toggleCart()
+                }
+            })
+            
+            // Demo: show welcome toast
+            setTimeout(() => {
+                showToast("Welcome to VillageMart! 🎉")
+            }, 1400)
+            
+            console.log('%cVillageMart website ready! 🛒', 'color:#166534; font-family:monospace; font-size:13px')
+        }
+        
+        // Boot the site
+        window.onload = initializeWebsite
+    </script>
+</body>
+</html>
+

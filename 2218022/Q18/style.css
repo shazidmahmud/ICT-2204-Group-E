@@ -1,0 +1,180 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f9;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(to right, #2ecc71, #27ae60);
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Services */
+.services {
+    padding: 20px;
+    text-align: center;
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    background: #dff9fb;
+}
+
+/* Emergency */
+.emergency {
+    background: #e74c3c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Table */
+.catalog {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #2c3e50;
+    color: white;
+}
+
+/* Form */
+.form-section {
+    padding: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #219150;
+}
+
+/* File input styling */
+.file-label {
+    background: #3498db;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.file-label input {
+    display: none;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .service-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* BLOG / HEALTH TIPS SECTION */
+.blog-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.blog-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.blog-card {
+    background: white;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.blog-card h3 {
+    margin: 10px 0;
+}
+
+.blog-card p {
+    padding: 0 10px;
+}
+
+.blog-card a {
+    display: inline-block;
+    margin: 10px;
+    color: white;
+    background: #27ae60;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.blog-card a:hover {
+    background: #219150;
+}
+
+/* smooth scroll effect */
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,357 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Arial;
+}
+
+body{
+    background:#f6f8fb;
+    color:#222;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    background:rgba(0,128,128,0.95);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+nav ul li a:hover,
+.active{
+    background:white;
+    color:#008080;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:90vh;
+    background:url('images/hero.jpg') center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.55);
+}
+
+.hero-text{
+    position:relative;
+    color:white;
+}
+
+.hero-text h1{
+    font-size:55px;
+}
+
+.hero-text p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+    padding:60px 10%;
+}
+
+.section h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:32px;
+}
+
+/* ================= DESTINATION CARDS ================= */
+
+.flex-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.card{
+    width:280px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:10px;
+}
+
+.card p{
+    padding:0 10px 10px;
+    font-size:14px;
+    color:#555;
+}
+
+.card button{
+    margin:10px;
+    width:90%;
+    padding:10px;
+    border:none;
+    background:#008080;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card button:hover{
+    background:#004d4d;
+}
+
+/* ================= BOOKING FORM ================= */
+
+.form-section{
+    padding:70px 10%;
+    text-align:center;
+}
+
+form{
+    background:white;
+    padding:40px;
+    max-width:500px;
+    margin:auto;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+form input, form select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+form button{
+    width:100%;
+    padding:12px;
+    background:#008080;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+form button:hover{
+    background:#004d4d;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.08);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .hero-text h1{
+        font-size:35px;
+    }
+}
+
+/* SUCCESS PAGE */
+
+.success-box{
+    text-align:center;
+    margin-top:100px;
+}
+
+.success-box h1{
+    color:green;
+}
+
+/* TABLE (ADMIN) */
+
+table{
+    width:90%;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+table th, table td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+table th{
+    background:#008080;
+    color:white;
+}
+/* POPUP OVERLAY */
+
+.popup-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+/* POPUP BOX */
+
+.popup-box{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    width:300px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    animation:pop 0.3s ease-in-out;
+}
+
+.popup-box h2{
+    color:#008080;
+    margin-bottom:10px;
+}
+
+.popup-box p{
+    margin-bottom:20px;
+}
+
+/* BUTTON */
+
+.popup-box button{
+    background:#008080;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.popup-box button:hover{
+    background:#004d4d;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn{
+    float:right;
+    font-size:22px;
+    cursor:pointer;
+    color:red;
+}
+
+/* ANIMATION */
+
+@keyframes pop{
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.hero-text button{
+    padding:12px 25px;
+    border:none;
+    background:#008080;
+    color:white;
+    font-size:16px;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+/* HOVER EFFECT */
+.hero-text button:hover{
+    background:#ffcc00;
+    color:#000;
+    transform:scale(1.1);
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}

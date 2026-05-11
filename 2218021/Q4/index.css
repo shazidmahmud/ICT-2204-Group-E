@@ -1,0 +1,198 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.6;
+    background:#f4f9f4;
+    color:#222;
+}
+
+/* ---------- HERO SECTION ---------- */
+
+.hero{
+    height:100vh;
+    background:url('https://plus.unsplash.com/premium_photo-1661866193149-4cb5997e111e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+    display:flex;
+    /* background-color: blue; */
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+    position:relative;
+    z-index:1;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.3rem;
+    max-width:700px;
+    margin:auto;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 25px;
+    background:#0f9d58;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    transition:0.4s;
+}
+
+.btn:hover{
+    background:#046c38;
+    transform:scale(1.05);
+}
+
+/* ---------- GENERAL SECTION ---------- */
+
+section{
+    padding:60px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2.5rem;
+    color:#0b5d36;
+}
+
+/* ---------- OVERVIEW ---------- */
+
+.overview{
+    text-align:center;
+    font-size:1.1rem;
+}
+
+/* ---------- FLEXBOX SECTION ---------- */
+
+.flex-container{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    width:320px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+/* ---------- GALLERY ---------- */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:0.5s;
+}
+
+.gallery img:hover{
+    transform:scale(1.08);
+}
+
+/* ---------- FACT CARDS ---------- */
+
+.fact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.fact{
+    background:#0f9d58;
+    color:white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.fact:hover{
+    transform:scale(1.05);
+    background:#046c38;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer img{
+    width:90%;
+    max-width:700px;
+    margin-top:20px;
+    border-radius:10px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+.section-title{
+    font-size:2rem;
+}
+
+}
