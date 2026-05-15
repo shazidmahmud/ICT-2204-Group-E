@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Riad er Club</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* BASIC RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#222;
+}
+
+/* HERO SECTION */
+.hero{
+    height:400px;
+    background-image:url('https://images.unsplash.com/photo-1574629810360-7efbbe195018');
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+.hero-overlay{
+    background:rgba(0,0,0,0.6);
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+.hero-overlay h1{
+    font-size:50px;
+}
+
+.motto{
+    margin-top:10px;
+    font-size:22px;
+}
+
+/* OWNER SECTION */
+.owner-section{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.owner-card{
+    background:white;
+    max-width:800px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.owner-card img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+.owner-info{
+    text-align:left;
+}
+
+/* TABLES */
+.fixtures,
+.matches{
+    padding:40px 20px;
+    text-align:center;
+}
+
+table{
+    width:90%;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+}
+
+table th,
+table td{
+    border:1px solid #ddd;
+    padding:15px;
+}
+
+table th{
+    background:#111;
+    color:white;
+}
+
+.win{
+    background:#d4edda;
+}
+
+.loss{
+    background:#f8d7da;
+}
+
+.draw{
+    background:#fff3cd;
+}
+
+/* PLAYER BUTTON */
+.player-section{
+    text-align:center;
+    margin:30px 0;
+}
+
+.player-section button{
+    padding:15px 30px;
+    border:none;
+    background:#111;
+    color:white;
+    cursor:pointer;
+    border-radius:8px;
+    font-size:18px;
+}
+
+/* PLAYERS */
+.players{
+    display:none;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    width:250px;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:15px 0 5px;
+}
+
+.card p{
+    margin-bottom:15px;
+}
+
+/* CONTACT */
+.contact{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.contact form{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.contact input,
+.contact textarea{
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.contact button{
+    padding:15px;
+    background:#111;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+}
+
+.modal-content{
+    background:white;
+    width:80%;
+    max-width:500px;
+    margin:100px auto;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-overlay">
+    <h1>Riad er Club</h1>
+    <p class="motto">“Play Hard, Win Easy”</p>
+  </div>
+</header>
+
+<!-- OWNER SECTION -->
+<section class="owner-section">
+
+  <h2>Club Owner</h2>
+
+  <div class="owner-card">
+
+    <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Owner">
+
+    <div class="owner-info">
+      <h3>Al Riad</h3>
+      <p>Owner & Founder of Riad er Club</p>
+      <p>Leading the club with passion, vision and dedication for football excellence.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FIXTURES -->
+<section class="fixtures">
+
+  <h2>Upcoming Fixtures</h2>
+
+  <table>
+
+    <tr>
+      <th>Date</th>
+      <th>Opponent</th>
+      <th>Venue</th>
+    </tr>
+
+    <tr>
+      <td>15 May</td>
+      <td>Team Alpha</td>
+      <td>Home</td>
+    </tr>
+
+    <tr>
+      <td>20 May</td>
+      <td>Team Beta</td>
+      <td>Away</td>
+    </tr>
+
+    <tr>
+      <td>25 May</td>
+      <td>Team Gamma</td>
+      <td>Home</td>
+    </tr>
+
+  </table>
+
+</section>
+
+<!-- BUTTON -->
+<section class="player-section">
+  <button onclick="togglePlayers()">View Players</button>
+</section>
+
+<!-- PLAYERS -->
+<section id="players" class="players">
+
+  <div class="card" onclick="showPlayer('Messi')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg" alt="Messi">
+    <h3>Lionel Messi</h3>
+    <p>#10 - Forward</p>
+  </div>
+
+  <div class="card" onclick="showPlayer('Ronaldo')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="Ronaldo">
+    <h3>Cristiano Ronaldo</h3>
+    <p>#7 - Forward</p>
+  </div>
+
+  <div class="card" onclick="showPlayer('Neymar')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Brazil_and_Croatia_match_at_the_FIFA_World_Cup_2022-12-09_%2852651309875%29_%28Neymar%29.jpg" alt="Neymar">
+    <h3>Neymar Jr</h3>
+    <p>#11 - Forward</p>
+  </div>
+
+  <!-- Mbappe -->
+<div class="card" onclick="showPlayer('Mbappe')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Kylian_Mbapp%C3%A9_2022.jpg" alt="Mbappe">
+    <h3>Kylian Mbappé</h3>
+    <p>#9 - Forward</p>
+  </div>
+
+  <!-- Oliver Kahn -->
+<div class="card" onclick="showPlayer('Kahn')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Oliver_Kahn_2006.jpg" alt="Kahn">
+    <h3>Oliver Kahn</h3>
+    <p>#1 - Goalkeeper</p>
+  </div>
+  
+
+ <!-- Van Dijk -->
+<div class="card" onclick="showPlayer('VanDijk')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Virgil_van_Dijk_2018.jpg" alt="Van Dijk">
+    <h3>Virgil van Dijk</h3>
+    <p>#4 - Defender</p>
+  </div>
+ <!-- Pedri -->
+<div class="card" onclick="showPlayer('Pedri')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Pedri_2022.jpg" alt="Pedri">
+    <h3>Pedri</h3>
+    <p>#8 - Midfielder</p>
+  </div>
+
+ <!-- Kimmich -->
+<div class="card" onclick="showPlayer('Kimmich')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Joshua_Kimmich_2019.jpg" alt="Kimmich">
+    <h3>Joshua Kimmich</h3>
+    <p>#6 - Midfielder</p>
+  </div>
+  <!-- Cruyff -->
+<div class="card" onclick="showPlayer('Cruyff')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Johan_Cruijff_1974c.jpg" alt="Cruyff">
+    <h3>Johan Cruyff</h3>
+    <p>#14 - Legend</p>
+  </div>
+
+  <!-- Eto -->
+<div class="card" onclick="showPlayer('Eto')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Samuel_Etoo_2011.jpg" alt="Eto'o">
+    <h3>Samuel Eto'o</h3>
+    <p>#9 - Forward</p>
+  </div>
+
+</section>
+
+<!-- MATCH RESULTS -->
+<section class="matches">
+
+<h2>Match Results</h2>
+
+<table>
+
+<tr>
+  <th>Date</th>
+  <th>Opponent</th>
+  <th>Score</th>
+  <th>Venue</th>
+  <th>Result</th>
+</tr>
+
+<tr class="win">
+  <td>10-05</td>
+  <td>Team A</td>
+  <td>3-1</td>
+  <td>Home</td>
+  <td>Win</td>
+</tr>
+
+<tr class="loss">
+  <td>12-05</td>
+  <td>Team B</td>
+  <td>0-2</td>
+  <td>Away</td>
+  <td>Loss</td>
+</tr>
+
+<tr class="draw">
+  <td>15-05</td>
+  <td>Team C</td>
+  <td>1-1</td>
+  <td>Home</td>
+  <td>Draw</td>
+</tr>
+
+</table>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+
+<h2>Contact Us</h2>
+
+<form action="contact.php" method="POST">
+
+<input type="text" name="name" placeholder="Name" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="text" name="subject" placeholder="Subject" required>
+
+<textarea name="message" placeholder="Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+
+  <div class="modal-content">
+
+    <span onclick="closeModal()" class="close">&times;</span>
+
+    <div id="playerDetails"></div>
+
+  </div>
+
+</div>
+
+<script>
+
+function togglePlayers(){
+
+let players = document.getElementById("players");
+
+if(players.style.display === "flex"){
+    players.style.display = "none";
+}
+else{
+    players.style.display = "flex";
+}
+
+}
+
+function showPlayer(name){
+
+let data = {
+
+Messi:"GOAT player with 8 Ballon d'Or",
+Ronaldo:"Legendary goal machine",
+Neymar:"Skill dribbler",
+Mbappe:"Fastest striker",
+Kahn:"Legend goalkeeper",
+VanDijk:"Best defender",
+Pedri:"Young creative midfielder",
+Kimmich:"Smart playmaker",
+Cruyff:"Total football legend",
+Eto:"Clinical finisher"
+
+};
+
+document.getElementById("playerDetails").innerHTML =
+"<h2>"+name+"</h2><p>"+data[name]+"</p>";
+
+document.getElementById("modal").style.display="block";
+
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>

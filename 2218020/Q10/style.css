@@ -1,0 +1,169 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* Header */
+
+header{
+    background:#ff5722;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.search-bar{
+    width:60%;
+    padding:10px;
+    margin-top:15px;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+}
+
+.buttons{
+    margin-top:15px;
+}
+
+.buttons button{
+    padding:10px 20px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.buttons button:hover{
+    background:black;
+    color:white;
+}
+
+.active{
+    background:black;
+    color:white;
+}
+
+/* Banner */
+
+.banner{
+    height:300px;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('fuchka.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    color:white;
+}
+
+.banner h2{
+    font-size:40px;
+}
+
+.banner p{
+    margin-top:10px;
+    font-size:20px;
+}
+
+/* Food Cards */
+
+.food-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.food-card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.food-card:hover{
+    transform:translateY(-10px);
+}
+
+.food-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.food-card h2,
+.food-card p,
+.rating{
+    padding:10px;
+}
+
+.rating{
+    color:gold;
+    font-size:20px;
+}
+
+/* Recipe Section */
+
+.recipe-section{
+    padding:30px;
+}
+
+.recipe{
+    display:none;
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+
+.recipe h2{
+    margin-bottom:10px;
+}
+
+.recipe h3{
+    margin-top:15px;
+}
+
+.recipe ul,
+.recipe ol{
+    margin-left:20px;
+    margin-top:10px;
+    line-height:2;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .search-bar{
+        width:90%;
+    }
+
+    .banner h2{
+        font-size:28px;
+    }
+
+    .banner p{
+        font-size:16px;
+    }
+
+}

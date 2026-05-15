@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bangladeshi Street Food</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <h1>Bangladeshi Street Food</h1>
+
+       <input type="text" placeholder="Search Foods..." class="search-bar" id="searchBox">
+        <div class="buttons">
+
+            <button class="filter-btn active" data-category="all">All</button>
+
+            <button class="filter-btn" data-category="snacks">Snacks</button>
+
+            <button class="filter-btn" data-category="sweets">Sweets</button>
+
+            <button class="filter-btn" data-category="drinks">Drinks</button>
+
+        </div>
+
+    </header>
+
+    <!-- Banner -->
+
+    <section class="banner">
+
+        <h2>Explore Delicious Bangladeshi Street Foods</h2>
+
+        <p>Tasty Recipes & Traditional Flavors</p>
+
+    </section>
+
+    <!-- Food Cards -->
+
+    <section class="food-container">
+
+        <!-- Snacks -->
+
+        <div class="food-card snacks" onclick="showRecipe('fuchka-recipe')">
+
+            <img src="fuchka.jpg" alt="Fuchka">
+
+            <h2>Fuchka</h2>
+
+            <p>Price: 50-100 TK</p>
+
+            <div class="rating">★★★★★</div>
+
+        </div>
+
+        <div class="food-card snacks" onclick="showRecipe('chotpoti-recipe')">
+
+            <img src="chotpoti.jpg" alt="Chotpoti">
+
+            <h2>Chotpoti</h2>
+
+            <p>Price: 60-120 TK</p>
+
+            <div class="rating">★★★★☆</div>
+
+        </div>
+
+        <div class="food-card snacks" onclick="showRecipe('jhalmuri-recipe')">
+
+            <img src="jhalmuri.jpg" alt="Jhalmuri">
+
+            <h2>Jhalmuri</h2>
+
+            <p>Price: 30-70 TK</p>
+
+            <div class="rating">★★★★★</div>
+
+        </div>
+
+        <!-- Sweets -->
+
+        <div class="food-card sweets" onclick="showRecipe('mishti-recipe')">
+
+            <img src="mishti.jpg" alt="Mishti">
+
+            <h2>Mishti</h2>
+
+            <p>Price: 20-80 TK</p>
+
+            <div class="rating">★★★★☆</div>
+
+        </div>
+
+        <div class="food-card sweets" onclick="showRecipe('rosogolla-recipe')">
+
+            <img src="rosogolla.jpg" alt="Rosogolla">
+
+            <h2>Rosogolla</h2>
+
+            <p>Price: 20-50 TK</p>
+
+            <div class="rating">★★★★★</div>
+
+        </div>
+
+        <!-- Drinks -->
+
+        <div class="food-card drinks" onclick="showRecipe('lassi-recipe')">
+
+            <img src="lassi.jpg" alt="Lassi">
+
+            <h2>Lassi</h2>
+
+            <p>Price: 50-100 TK</p>
+
+            <div class="rating">★★★★★</div>
+
+        </div>
+
+        <div class="food-card drinks" onclick="showRecipe('tea-recipe')">
+
+            <img src="tea.jpg" alt="Tea">
+
+            <h2>Tea</h2>
+
+            <p>Price: 10-30 TK</p>
+
+            <div class="rating">★★★★☆</div>
+
+        </div>
+
+        <div class="food-card drinks" onclick="showRecipe('borhani-recipe')">
+
+            <img src="borhani.jpg" alt="Borhani">
+
+            <h2>Borhani</h2>
+
+            <p>Price: 40-80 TK</p>
+
+            <div class="rating">★★★★★</div>
+
+        </div>
+
+    </section>
+
+    <!-- Recipes -->
+
+    <section class="recipe-section">
+
+        <!-- Fuchka -->
+
+        <div class="recipe" id="fuchka-recipe">
+
+            <h2>Fuchka Recipe</h2>
+
+            <p><strong>Preparation Time:</strong> 20 Minutes</p>
+
+            <h3>Ingredients</h3>
+
+            <ul>
+                <li>Fuchka shells</li>
+                <li>Potato</li>
+                <li>Chickpeas</li>
+                <li>Tamarind water</li>
+            </ul>
+
+            <h3>Instructions</h3>
+
+            <ol>
+                <li>Boil potatoes.</li>
+                <li>Mix ingredients.</li>
+                <li>Fill shells.</li>
+                <li>Serve with tamarind water.</li>
+            </ol>
+
+        </div>
+
+        <!-- Chotpoti -->
+
+        <div class="recipe" id="chotpoti-recipe">
+
+            <h2>Chotpoti Recipe</h2>
+
+            <p><strong>Preparation Time:</strong> 25 Minutes</p>
+
+            <h3>Ingredients</h3>
+
+            <ul>
+                <li>Chickpeas</li>
+                <li>Potato</li>
+                <li>Egg</li>
+                <li>Spices</li>
+            </ul>
+
+            <h3>Instructions</h3>
+
+            <ol>
+                <li>Boil chickpeas.</li>
+                <li>Add spices and potato.</li>
+                <li>Mix properly.</li>
+                <li>Serve hot.</li>
+            </ol>
+
+        </div>
+
+        <!-- Jhalmuri -->
+
+        <div class="recipe" id="jhalmuri-recipe">
+
+            <h2>Jhalmuri Recipe</h2>
+
+            <p><strong>Preparation Time:</strong> 10 Minutes</p>
+
+            <h3>Ingredients</h3>
+
+            <ul>
+                <li>Puffed rice</li>
+                <li>Onion</li>
+                <li>Chili</li>
+                <li>Mustard oil</li>
+            </ul>
+
+            <h3>Instructions</h3>
+
+            <ol>
+                <li>Take puffed rice.</li>
+                <li>Add onion and chili.</li>
+                <li>Mix mustard oil.</li>
+                <li>Serve fresh.</li>
+            </ol>
+
+        </div>
+
+        <!-- Mishti -->
+
+        <div class="recipe" id="mishti-recipe">
+
+            <h2>Mishti Recipe</h2>
+
+            <p><strong>Preparation Time:</strong> 30 Minutes</p>
+
+            <h3>Ingredients</h3>
+
+            <ul>
+                <li>Milk</li>
+                <li>Sugar</li>
+                <li>Cardamom</li>
+            </ul>
+
+            <h3>Instructions</h3>
+
+            <ol>
+                <li>Boil milk.</li>
+                <li>Add sugar.</li>
+                <li>Cook until thick.</li>
+                <li>Serve cool.</li>
+            </ol>
+
+        </div>
+
+        <!-- Rosogolla -->
+
+        <div class="recipe" id="rosogolla-recipe">
+
+            <h2>Rosogolla Recipe</h2>
+
+            <p><strong>Preparation Time:</strong> 40 Minutes</p>
+
+            <h3>Ingredients</h3>
+
+            <ul>
+                <li>Milk</li>
+                <li>Sugar syrup</li>
+                <li>Lemon juice</li>
+            </ul>
+
+            <h3>Instructions</h3>
+
+            <ol>
+                <li>Prepare chana from milk.</li>
+                <li>Make small balls.</li>
+                <li>Boil in sugar syrup.</li>
+                <li>Serve chilled.</li>
+            </ol>
+
+        </div>
+
+        <!-- Lassi -->
+
+        <div class="recipe" id="lassi-recipe">
+
+            <h2>Lassi Recipe</h2>
+
+            <p><strong>Preparation Time:</strong> 10 Minutes</p>
+
+            <h3>Ingredients</h3>
+
+            <ul>
+                <li>Yogurt</li>
+                <li>Sugar</li>
+                <li>Milk</li>
+                <li>Ice cubes</li>
+            </ul>
+
+            <h3>Instructions</h3>
+
+            <ol>
+                <li>Take yogurt and milk.</li>
+                <li>Add sugar.</li>
+                <li>Blend properly.</li>
+                <li>Serve chilled.</li>
+            </ol>
+
+        </div>
+
+        <!-- Tea -->
+
+        <div class="recipe" id="tea-recipe">
+
+            <h2>Tea Recipe</h2>
+
+            <p><strong>Preparation Time:</strong> 5 Minutes</p>
+
+            <h3>Ingredients</h3>
+
+            <ul>
+                <li>Tea leaves</li>
+                <li>Milk</li>
+                <li>Sugar</li>
+            </ul>
+
+            <h3>Instructions</h3>
+
+            <ol>
+                <li>Boil water.</li>
+                <li>Add tea leaves.</li>
+                <li>Add milk and sugar.</li>
+                <li>Serve hot.</li>
+            </ol>
+
+        </div>
+
+        <!-- Borhani -->
+
+        <div class="recipe" id="borhani-recipe">
+
+            <h2>Borhani Recipe</h2>
+
+            <p><strong>Preparation Time:</strong> 15 Minutes</p>
+
+            <h3>Ingredients</h3>
+
+            <ul>
+                <li>Yogurt</li>
+                <li>Mint</li>
+                <li>Spices</li>
+                <li>Salt</li>
+            </ul>
+
+            <h3>Instructions</h3>
+
+            <ol>
+                <li>Take yogurt.</li>
+                <li>Add spices and mint.</li>
+                <li>Blend properly.</li>
+                <li>Serve cold.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
